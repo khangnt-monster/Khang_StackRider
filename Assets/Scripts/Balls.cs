@@ -13,6 +13,6 @@ public class Balls : MonoBehaviour
     }
     void Update()
     {
-        //transform.Rotate(Vector3.right * lerpTime);
+        transform.Rotate(Vector3.right * lerpTime);
     }
 }

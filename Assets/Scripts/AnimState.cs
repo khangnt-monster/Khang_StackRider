@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimState : MonoBehaviour
+public enum AnimState
 {
-    
+    Idle,
+    RunningBack
 }
