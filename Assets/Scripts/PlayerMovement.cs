@@ -56,28 +56,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.collider.tag == "Ball")
         {
             Transform otherTransform = collision.transform;
-
             Rigidbody otherRB = otherTransform.GetComponent<Rigidbody>();
-
             otherRB.isKinematic = true;
             collision.collider.enabled = false;
             if (parentPickup == null)
             {
+                //parentPickup = otherTransform;
+                //parentPickup.position = stackPos.position;
+                //parentPickup.parent = stackPos;
+
+                transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 parentPickup = otherTransform;
                 parentPickup.position = stackPos.position;
                 parentPickup.parent = stackPos;
             }
             else
             {
-                parentPickup.position += Vector3.up * (otherTransform.localScale.y);
+                transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                parentPickup.position += Vector3.down * (otherTransform.localPosition.y);
                 otherTransform.position = stackPos.position;
                 otherTransform.parent = stackPos;
             }
 
         }
-    }
 
+
+    }
 }
+

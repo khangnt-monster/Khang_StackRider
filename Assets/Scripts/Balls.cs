@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Balls : MonoBehaviour
 {
+
     Transform parentPickup;
-    //[SerializeField] Transform stackPos;
+    public Text coinsText;
+    private int coins;
+    public GameOverScript gameOverScript;
+    [SerializeField] bool isPlaying;
 
     public Quaternion startQuaternion;
     [SerializeField] public float lerpTime = 2;
@@ -21,6 +26,17 @@ public class Balls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Collectable")
+        {
+            Destroy(other.gameObject);
+            coins += 1;
+            coinsText.text = coins.ToString();
+        }
 
+        if (other.tag == "Finish")
+        {
+            gameOverScript.Setup(true);
+            isPlaying = false;
+        }
     }
 }
