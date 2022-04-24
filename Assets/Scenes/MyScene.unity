@@ -1267,36 +1267,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609017673}
   m_CullTransparentMesh: 1
---- !u!1 &722047154
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 722047155}
-  m_Layer: 0
-  m_Name: Walls
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &722047155
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722047154}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.309874, y: -4.029436, z: 34.20453}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &728455764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4226265806932545477, guid: 3437bd540a5b5c346a30543c00cd7b41, type: 3}
@@ -1320,7 +1290,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751829723}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4, y: 1, z: 1.2}
@@ -2435,13 +2405,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1543049386, guid: 57168e21e96058c4baeb345805046683, type: 3}
+      propertyPath: coinsText
+      value: 
+      objectReference: {fileID: 609017675}
+    - target: {fileID: 1543049386, guid: 57168e21e96058c4baeb345805046683, type: 3}
+      propertyPath: gameOverScript
+      value: 
+      objectReference: {fileID: 1861234582}
     - target: {fileID: 7449267971862275776, guid: 57168e21e96058c4baeb345805046683, type: 3}
       propertyPath: m_Name
       value: Ball_1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7449267971862275776, guid: 57168e21e96058c4baeb345805046683, type: 3}
-      propertyPath: m_TagString
-      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 7449267971862275779, guid: 57168e21e96058c4baeb345805046683, type: 3}
       propertyPath: m_RootOrder
@@ -2963,29 +2937,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492030959}
   m_CullTransparentMesh: 1
---- !u!1 &1543049382 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7449267972188646270, guid: 57168e21e96058c4baeb345805046683, type: 3}
-  m_PrefabInstance: {fileID: 1346922126}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1543049386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543049382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2112b943717b8b4fafbe8ac9ecbcf2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stackPos: {fileID: 169995337}
-  coinsText: {fileID: 0}
-  gameOverScript: {fileID: 0}
-  isPlaying: 0
-  startQuaternion: {x: 0, y: 0, z: 0, w: 0}
-  lerpTime: 2
 --- !u!1001 &1543465479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3154,40 +3105,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1618596260 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7449267971862275776, guid: 57168e21e96058c4baeb345805046683, type: 3}
-  m_PrefabInstance: {fileID: 1346922126}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1618596261
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618596260}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!135 &1618596262
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618596260}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1622503066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8178712424429584558, guid: 284f037d0d6ce0946ac7d011614ec2cb, type: 3}
@@ -3658,13 +3575,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872941864}
     m_Modifications:
+    - target: {fileID: 888599099, guid: 26d23734b3a960c4988f7d9b586cc0f8, type: 3}
+      propertyPath: coinsText
+      value: 
+      objectReference: {fileID: 609017675}
+    - target: {fileID: 888599099, guid: 26d23734b3a960c4988f7d9b586cc0f8, type: 3}
+      propertyPath: gameOverScript
+      value: 
+      objectReference: {fileID: 1861234582}
     - target: {fileID: 1560623378930317304, guid: 26d23734b3a960c4988f7d9b586cc0f8, type: 3}
       propertyPath: m_Name
       value: Ball_2 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1560623378930317311, guid: 26d23734b3a960c4988f7d9b586cc0f8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1560623378930317311, guid: 26d23734b3a960c4988f7d9b586cc0f8, type: 3}
       propertyPath: m_LocalPosition.x
