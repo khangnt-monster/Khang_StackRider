@@ -16,21 +16,25 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Collider coll;
 
-    private void Awake()
-    {
-        state = State.running;
-    }
+    Transform parentPickup;
+    [SerializeField] Transform stackPos;
+    [SerializeField] bool isPlaying;
+
+    public GameOverScript gameOverScript;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider>();
+
+        isPlaying = true;
     }
 
     void Update()
     {
-        transform.Translate(Vector3.forward * PlayerSpeed * Time.deltaTime, Space.World);
+        if (isPlaying)
+            transform.Translate(Vector3.forward * PlayerSpeed * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -42,7 +46,37 @@ public class PlayerMovement : MonoBehaviour
             coins += 1;
             coinsText.text = coins.ToString();
         }
+
+        if (collision.tag == "Ball")
+        {
+            Transform otherTransform = collision.transform;
+
+            Rigidbody otherRB = otherTransform.GetComponent<Rigidbody>();
+
+            otherRB.isKinematic = true;
+            collision.enabled = false;
+            if (parentPickup == null)
+            {
+                parentPickup = otherTransform;
+                parentPickup.position = stackPos.position;
+                parentPickup.parent = stackPos;
+            }
+            else
+            {
+                parentPickup.position += Vector3.up * (otherTransform.localScale.y);
+                otherTransform.position = stackPos.position;
+                otherTransform.parent = stackPos;
+            }
+
+        }
+
+        if (collision.tag == "Finish")
+        {
+            gameOverScript.Setup(true);
+            isPlaying = false;
+        }
     }
+
 
     private void AnimationState()
     {
