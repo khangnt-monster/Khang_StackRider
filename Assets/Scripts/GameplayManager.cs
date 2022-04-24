@@ -1,26 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
-    Stack<Transform> objectPool = new Stack<Transform>();
-    Transform ballPrefab;
+    public GameOverScript GameOverScript;
 
-    public GameObject Balls;
+    public GameObject ground;
+
+    Stack<Transform> objectPool = new Stack<Transform>();
+
+    Touch touch;
+
+    void Awake()
+    {
+        GameOverScript.Setup(false);
+
+    }
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
-    }
-
-    public void MoveBall()
-    {
 
     }
+
+
+
 }
