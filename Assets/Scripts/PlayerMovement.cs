@@ -37,24 +37,33 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(Vector3.forward * PlayerSpeed * Time.deltaTime, Space.World);
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.tag == "Collectable")
+        if (other.tag == "Collectable")
         {
-            Debug.Log(" is work ");
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
             coins += 1;
             coinsText.text = coins.ToString();
         }
 
-        if (collision.tag == "Ball")
+        if (other.tag == "Finish")
+        {
+            gameOverScript.Setup(true);
+            isPlaying = false;
+        }
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Ball")
         {
             Transform otherTransform = collision.transform;
 
             Rigidbody otherRB = otherTransform.GetComponent<Rigidbody>();
 
             otherRB.isKinematic = true;
-            collision.enabled = false;
+            collision.collider.enabled = false;
             if (parentPickup == null)
             {
                 parentPickup = otherTransform;
@@ -69,17 +78,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
-        if (collision.tag == "Finish")
-        {
-            gameOverScript.Setup(true);
-            isPlaying = false;
-        }
-    }
-
-
-    private void AnimationState()
-    {
     }
 
 }

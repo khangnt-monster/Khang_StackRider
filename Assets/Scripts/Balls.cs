@@ -19,7 +19,7 @@ public class Balls : MonoBehaviour
         transform.Rotate(Vector3.right * lerpTime);
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
 
     }

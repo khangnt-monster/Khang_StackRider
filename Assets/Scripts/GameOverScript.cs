@@ -15,4 +15,5 @@ public class GameOverScript : MonoBehaviour
     {
         SceneManager.LoadScene("MyScene");
     }
+
 }
